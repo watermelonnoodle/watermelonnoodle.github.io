@@ -172,7 +172,60 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="先搭个博客记录一下啦"><a href="#先搭个博客记录一下啦" class="headerlink" title="先搭个博客记录一下啦"></a>先搭个博客记录一下啦</h2>
+        <h2 id="先搭个博客记录一下啦"><a href="#先搭个博客记录一下啦" class="headerlink" title="先搭个博客记录一下啦"></a>先搭个博客记录一下啦</h2><hr>
+<h3 id="使用的是hexo-再加上yilia"><a href="#使用的是hexo-再加上yilia" class="headerlink" title="使用的是hexo  再加上yilia"></a>使用的是hexo  再加上yilia</h3><h4 id="本地安装hexo"><a href="#本地安装hexo" class="headerlink" title="本地安装hexo"></a>本地安装hexo</h4><pre><code>* 我用的是win10 部署在github 因为不用花钱 QAQ
+
+* 安装hexo先安装node.js(安装node.js还会自动安装npm包管理器)和git(在hexo init时要用到git) 从网上下载安装包
+
+* 下面有命令的操作我都是在管理员模式下的cmd上进行的( 我好像一直都没关过 )
+
+* 安装完成使用 node -v 和 npm -v 查看版本信息 git 则使用 git --version 如果都有版本信息那就OK了
+
+* 利用npm安装cnpm使用淘宝的源来提升速度 npm install -g cnpm --registry=https://registry.npm.taobao.org 
+
+* 安装完成使用 cnpm -v 也是可以看到版本信息的 如果不安装cnpm就把下面命令中的cnpm换成npm
+
+* 安装hexo-cli 是 cnpm install -g hexo-cli 安装完可以用 hexo -v 验证一下
+
+* 创建一个空的文件夹名字随意我用的是hexo用于存放本地的hexo博客在本地写好了预览可以之后就能部署了如果不满意就可以删了重来
+
+* 创建完成后将cmd切换到所在文件夹比如我在E盘创建了hexo一般cmd默认在个人文件夹下所以先切换磁盘 E: 就可以了在 cd hexo
+
+* 切换到目录下之后可以生成博客 hexo init ( 如果没有git这里就会报错，目录的文件夹必须是空的不然也会报错 ) 如果成功了目录下应该有很多文件如果懒得进文件夹可以用 dir 来查看
+
+* 启动博客 hexo server ( 可以缩写为 hexo s ) 成功之后可以通过在浏览器中输入 localhost:4000 来访问停掉就ctrl+c在这里就是用来预览的
+
+* 新建文章 hexo new &quot;文章标题&quot; ( 可缩写为 hexo n &quot;xxx&quot; )
+
+* 用记事本还是vscode或者编写md的软件打开位于 创建文件夹/source/_posts/文章标题.md 文件来进行编写
+
+* 写完之后在cmd中输入 hexo clean 清理 hexo generated ( 可缩写为 hexo g) 生成 hexo server 启动 在浏览器中预览</code></pre><h4 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h4><pre><code>* 要先拥有一个github账户有点慢但可以上注册验证邮箱什么的
+
+* 进到个人页面右上角+号 New repository 新建仓库
+
+* 名字命名 你的用户名.gethub.io ( 应该是和前面Owner下的名字一样 ) 下面是描述 然后选择public 可以点create repository了
+他会给你跳转到一个页面里面有一段网址复制下来 [1]
+
+* 回到cmd安装git部署的插件 cnpm install --save hexo-deployer-git
+
+* 打开 创建文件夹/_config.yml 到最底下的 #Deployment 在下面写上
+type: git
+repo: 这里粘贴刚才的网址 [1]
+branch: master
+保存退出
+
+* 部署到远端 hexo d ( 如果出现这样的提示 
+Run
+git config --global user.email &quot;you@example.com&quot;
+git config --global user.name &quot;Your Name&quot; 
+按照他的提示输入那两个命令后面换上你的邮箱和你的名字
+这篇文章可能会对你有所帮助：
+https://blog.csdn.net/u013914471/article/details/88394310
+)(这个过程中可能会让你输入github的账号和密码)
+
+* 回到网页刷新github这时候仓库应该就会有东西了
+
+* 通过在地址栏输入 你的用户名.github.io 就能访问你的博客了</code></pre>
       
 
       
