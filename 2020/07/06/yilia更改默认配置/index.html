@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Watermelon·Noodle</title>
+  <title>yilia更改默认配置 | Watermelon·Noodle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="西瓜面的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Watermelon·Noodle">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="yilia第一次使用更改头像，超链接，评论，分享以及文档在主页显示太多的尝试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yilia更改默认配置">
+<meta property="og:url" content="http://yoursite.com/2020/07/06/yilia%E6%9B%B4%E6%94%B9%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Watermelon·Noodle">
-<meta property="og:description" content="西瓜面的博客">
+<meta property="og:description" content="yilia第一次使用更改头像，超链接，评论，分享以及文档在主页显示太多的尝试">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-06T11:34:58.000Z">
+<meta property="article:modified_time" content="2020-07-06T12:06:17.973Z">
 <meta property="article:author" content="WatermelonNoodle">
-<meta property="article:tag" content="WatermelonNoodle">
-<meta property="article:tag" content="西瓜面">
+<meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Watermelon·Noodle" type="application/atom+xml">
@@ -148,36 +149,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-yilia更改默认配置" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      yilia更改默认配置
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/06/yilia%E6%9B%B4%E6%94%B9%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE/" class="archive-article-date">
+
+        
+        <a href="/2020/07/06/yilia%E6%9B%B4%E6%94%B9%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE/" class="archive-article-date">
   	<time datetime="2020-07-06T11:34:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-06</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/06/yilia%E6%9B%B4%E6%94%B9%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE/">yilia更改默认配置</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>yilia第一次使用更改头像，超链接，评论，分享以及文档在主页显示太多的尝试</p>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<h3 id="yilia的配置文件在-themes-yilia-config-yml-后面大概更改的都是这个文件"><a href="#yilia的配置文件在-themes-yilia-config-yml-后面大概更改的都是这个文件" class="headerlink" title="yilia的配置文件在 themes/yilia/_config.yml 后面大概更改的都是这个文件"></a>yilia的配置文件在 themes/yilia/_config.yml 后面大概更改的都是这个文件</h3><br />
+
+<h4 id="更改头像-二维码"><a href="#更改头像-二维码" class="headerlink" title="更改头像 二维码"></a>更改头像 二维码</h4><pre><code>* 找到文件中的 #你的头像url  avatar:
+
+* 如果有链接就可以直接放链接了
+
+* 没有的话可以将图片放在hexo文件目录下的source文件夹下 配置文件中写 avatar: /文件名.后缀
+
+* 不要将图片放在public中虽然可以用但是 hexo clean 会把public删掉放在source中 hexo g 会自动添加到public中
+
+* 后面的二维码图片也可以放在source里面就相当于根 / </code></pre><br />
+
+<h4 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h4><pre><code>* 配置文件中的subnav: #github: &quot;#&quot; ... 就是可以放超链接的地方不用的就可以注释掉
+
+* 一般的链接比如bilibili放上http方式的主页就可以了
+
+* 微信 QQ 这种可以像放头像一样把二维码放上去
+
+* 邮箱要用 mailto: xxxxxxx@xx.com 这种形式 (mailto:后面有一个空格)</code></pre><br />
+
+<h4 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h4><pre><code>* 它可以支持 评论：1、多说；2、网易云跟帖；3、畅言；4、Disqus；5、Gitment
+
+* 多说 网易云跟帖 凉了 Disqus注册要翻墙我注册的时候总是不成功
+
+* 畅言注册之后要提供域名备案才可以
+
+* Gitment在github上注册后登陆时一直报Object ProgressEvent gitment作者那个服务器过期了好像，我看的还是18年的博客 可以尝试一下gitalk
+
+* 我都给注释掉就关了</code></pre><br />
+
+<h4 id="分享"><a href="#分享" class="headerlink" title="分享"></a>分享</h4><pre><code>* #是否开启分享 share_jia: true 打开就好了
+
+* 打开之后会在你博客文章的右下角有一个分享标志
+
+* 我试了一下QQ是可以用的微信那个图片一直加载不出来应该要设置一下吧</code></pre><br />
+
+<h4 id="文档在主页显示太多"><a href="#文档在主页显示太多" class="headerlink" title="文档在主页显示太多"></a>文档在主页显示太多</h4><pre><code>* 这个就好解决了在想要弯折的地方添加&lt;!-- more--&gt;
+
+* 这样前面的就都会在主页预览的时候显示出来后面就会变成一个链接了
+
+* 很多主题都能用</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -189,61 +231,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/06/yilia%E6%9B%B4%E6%94%B9%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/05/%E5%97%9D%E5%84%BF/" class="archive-article-date">
-  	<time datetime="2020-07-05T09:52:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/05/%E5%97%9D%E5%84%BF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">哈哈哈从零开始啦</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/05/%E5%97%9D%E5%84%BF/">哈哈哈从零开始啦</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -272,8 +359,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
