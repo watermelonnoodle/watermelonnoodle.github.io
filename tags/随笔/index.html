@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>git使用的学习 | Watermelon·Noodle</title>
+  <title>Tag: 随笔 | Watermelon·Noodle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用git进行管理代码，本地仓库的创建和使用，以及集成IDEA的使用">
-<meta property="og:type" content="article">
-<meta property="og:title" content="git使用的学习">
-<meta property="og:url" content="http://yoursite.com/2020/07/07/git%E4%BD%BF%E7%94%A8%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">
+  <meta name="description" content="西瓜面的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Watermelon·Noodle">
+<meta property="og:url" content="http://yoursite.com/tags/%E9%9A%8F%E7%AC%94/index.html">
 <meta property="og:site_name" content="Watermelon·Noodle">
-<meta property="og:description" content="使用git进行管理代码，本地仓库的创建和使用，以及集成IDEA的使用">
+<meta property="og:description" content="西瓜面的博客">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-07T03:14:23.000Z">
-<meta property="article:modified_time" content="2020-07-07T05:45:38.937Z">
 <meta property="article:author" content="WatermelonNoodle">
-<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="WatermelonNoodle">
+<meta property="article:tag" content="西瓜面">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Watermelon·Noodle" type="application/atom+xml">
@@ -149,63 +148,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-git使用的学习" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      git使用的学习
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/07/07/git%E4%BD%BF%E7%94%A8%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2020-07-07T03:14:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/07/07/git%E4%BD%BF%E7%94%A8%E7%9A%84%E5%AD%A6%E4%B9%A0/">git使用的学习</a>
     </h1>
   
 
-        
-        <a href="/2020/07/07/git%E4%BD%BF%E7%94%A8%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-07-07T03:14:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用git进行管理代码，本地仓库的创建和使用，以及集成IDEA的使用</p>
-<a id="more"></a>
-
-<pre><code>* git安装下载好安装包一路next就好了</code></pre><br />
-
-<h4 id="git基本管理命令"><a href="#git基本管理命令" class="headerlink" title="git基本管理命令"></a>git基本管理命令</h4><pre><code>* git分为  工作区   暂存区   本地仓库   远程仓库
-
-* git init                      初始化git仓库 会创建一个.git的隐藏文件夹
-
-* git add .                     将所有文件添加到暂存区
-
-* git commit -m &quot;消息内容&quot;      提交缓存区的内容
-
-* git clone 远端仓库地址         克隆远端仓库</code></pre><br />
-
-<h4 id="git提交时忽略文件-主目录下创建-gitignore-文件"><a href="#git提交时忽略文件-主目录下创建-gitignore-文件" class="headerlink" title="git提交时忽略文件 主目录下创建 .gitignore 文件"></a>git提交时忽略文件 主目录下创建 .gitignore 文件</h4><pre><code>* 通配符和Linux中的通用
-
-* 支持#号注释
-
-* 例如IDEA 中忽略.idea 可以添加 .idea/</code></pre><br />
-
-<h4 id="gitee码云上的免密登录-ssh"><a href="#gitee码云上的免密登录-ssh" class="headerlink" title="gitee码云上的免密登录 ssh"></a>gitee码云上的免密登录 ssh</h4><pre><code>* 进入到 C:\Users\用户名\.ssh 文件下 .ssh 没有的可以打开查看隐藏文件实在没有创建一个
-
-* 右键有一个 git bush here 打开命令窗口
-
-* $ ssh-keygen -t rsa    一直回车就好了 [ 这里是让输入信息没有就是默认的可以看一下 ] ( 和在Linux上一样 )
-
-* 会生成两个文件将.pub后缀的公钥文件里面的内容粘贴到码云上 ( 在个人设置里面 )</code></pre><br />
-
-<h4 id="git-的分支"><a href="#git-的分支" class="headerlink" title="git 的分支"></a>git 的分支</h4><pre><code>* 啊才发现官网已经很详细， 以后踩坑了再写吧</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -217,106 +189,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/07/git%E4%BD%BF%E7%94%A8%E7%9A%84%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
   
   
-    <a href="/2020/07/06/yilia%E6%9B%B4%E6%94%B9%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">yilia更改默认配置</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -345,9 +230,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
