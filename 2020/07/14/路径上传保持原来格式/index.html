@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>spring-boot注册页面 | Watermelon·Noodle</title>
+  <title>路径上传保持原来格式 | Watermelon·Noodle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="刚开始学习Spring-boot,利用Spring-boot建立一个登录和注册的后台，页面数据存入数据库，从数据库取出数据和页面数据进行比较">
+  <meta name="description" content="链接从前端传入后端会自动转义字符">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring-boot注册页面">
-<meta property="og:url" content="http://yoursite.com/2020/07/10/spring-boot%E7%99%BB%E5%BD%95%E5%92%8C%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2/index.html">
+<meta property="og:title" content="路径上传保持原来格式">
+<meta property="og:url" content="http://yoursite.com/2020/07/14/%E8%B7%AF%E5%BE%84%E4%B8%8A%E4%BC%A0%E4%BF%9D%E6%8C%81%E5%8E%9F%E6%9D%A5%E6%A0%BC%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Watermelon·Noodle">
-<meta property="og:description" content="刚开始学习Spring-boot,利用Spring-boot建立一个登录和注册的后台，页面数据存入数据库，从数据库取出数据和页面数据进行比较">
+<meta property="og:description" content="链接从前端传入后端会自动转义字符">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-10T10:08:29.000Z">
-<meta property="article:modified_time" content="2020-07-10T07:52:02.553Z">
+<meta property="article:published_time" content="2020-07-13T17:00:32.000Z">
+<meta property="article:modified_time" content="2020-07-13T17:05:27.022Z">
 <meta property="article:author" content="WatermelonNoodle">
-<meta property="article:tag" content="spring-boot">
-<meta property="article:tag" content="记录">
+<meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Watermelon·Noodle" type="application/atom+xml">
@@ -150,112 +149,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-spring-boot登录和注册页面" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-路径上传保持原来格式" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      spring-boot注册页面
+      路径上传保持原来格式
     </h1>
   
 
         
-        <a href="/2020/07/10/spring-boot%E7%99%BB%E5%BD%95%E5%92%8C%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2/" class="archive-article-date">
-  	<time datetime="2020-07-10T10:08:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
+        <a href="/2020/07/14/%E8%B7%AF%E5%BE%84%E4%B8%8A%E4%BC%A0%E4%BF%9D%E6%8C%81%E5%8E%9F%E6%9D%A5%E6%A0%BC%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2020-07-13T17:00:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>刚开始学习Spring-boot,利用Spring-boot建立一个登录和注册的后台，页面数据存入数据库，从数据库取出数据和页面数据进行比较</p>
+        <p>链接从前端传入后端会自动转义字符</p>
 <a id="more"></a>
 
-<br />
+<pre><code>* 连接中的/ : 会被转译成编码形式
 
-<h4 id="完善目录结构"><a href="#完善目录结构" class="headerlink" title="完善目录结构"></a>完善目录结构</h4><pre><code>* controller文件夹下的类用于获取前端数据
+* 用表单的形式提交可以避免问题</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">axios.post("http://localhost:8989/xxx/xxx",&#123;link: this.link&#125;).then((res)=&gt;&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-* service文件夹下存放服务层接口和实现类
+<pre><code>* 获取数据只要在加上 .link即可
 
-* dao文件夹下存放dao接口
-
-* entity文件夹下存放实体类
-
-* resources文件夹下存放mybatis的xml映射文件</code></pre><br />
-
-<h4 id="配置application-properties"><a href="#配置application-properties" class="headerlink" title="配置application.properties"></a>配置application.properties</h4><pre><code>* 配置服务器端口
-server.port=8989
-
-* 配置数据库
-spring.datasource.type=com.alibaba.druid.pool.DruidDataSource //这里用的是alibaba的mysql
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.datasource.url=jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimeZone=GMT
-spring.datasource.username=root
-spring.datasource.password=000000
-
-* 配置mybatis
-mybatis-plus.mapper-locations=classpath:com/watermelonnoodle/siaw/mapper/*.xml
-mybatis-plus.type-aliases-package=com.watermelonnoodle.siaw.entity
-
-* 微服务名
-spring.application.name=siaw</code></pre><br />
-
-<h4 id="User实体类"><a href="#User实体类" class="headerlink" title="User实体类"></a>User实体类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> String id;</span><br><span class="line"><span class="keyword">private</span> String username;</span><br><span class="line"><span class="keyword">private</span> String password;</span><br><span class="line"><span class="keyword">private</span> String phone;</span><br><span class="line"><span class="keyword">private</span> String wechatnum;</span><br><span class="line"><span class="keyword">private</span> String email;</span><br></pre></td></tr></table></figure>
-
-<pre><code>自动生成get set方法或者使用@Data注解
-添加@AllArgsConstructor 创建一个有参构造函数( 所有已声明字段属性参数 )
-添加@NoArgsConstructor 创建一个无参构造函数
-添加@ToString 生成toString方法</code></pre><br />
-
-<h4 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h4><pre><code>* 创建注册方法register接收浏览器传入的User对象
-
-* 将user传给server判断方法判断用户ID是否存在返回User对象
-
-* 判断返回的User是否为空
-
-* 为空证明ID不重复将从浏览器接收到的user传给server注册方法进行注册
-
-* 注册成功后返回信息
-
-* 不为空证明ID重复返回信息
-
-* 返回的应该是一个实体类可以返回更多信息，更好的交给前端浏览器进行判断</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> IUserService userService;</span><br><span class="line"></span><br><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"register"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">register</span><span class="params">(@RequestBody User user, HttpSession session)</span></span>&#123;</span><br><span class="line">    String result = <span class="string">""</span>;                   <span class="comment">//注册返回对象</span></span><br><span class="line">    User userDB = userService.selectid(user);     <span class="comment">//验证id是否在数据库中存在 返回NULL就是不存在</span></span><br><span class="line">        <span class="keyword">if</span>(userDB == <span class="keyword">null</span>)&#123;                         <span class="comment">//如果不存在执行写入数据库操作</span></span><br><span class="line">            log.info(<span class="string">"user"</span>+ user);</span><br><span class="line">            userService.register(user);</span><br><span class="line">            result = <span class="string">"注册成功"</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;                                     <span class="comment">//如果id已经存在的处理</span></span><br><span class="line">            result = <span class="string">"id已被注册"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<br />
-
-<h4 id="service"><a href="#service" class="headerlink" title="service"></a>service</h4><pre><code>* 创建IUserService接口 和 controller 对应
-
-* 两个方法一个查找用户id 一个注册用户</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">User <span class="title">selectid</span><span class="params">(User user)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">register</span><span class="params">(User user)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<pre><code>* 创建IUserService接口的实现类 UserService 继承接口并实现方法
-
-* 查找用户id 将user的id传给Dao接口的方法返回User对象
-
-* 注册用户直接调用Dao的注册方法</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> IUserDao userDao;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> User <span class="title">selectid</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> userDao.selectid(user.getId());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">register</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//System.out.println(user);</span></span><br><span class="line">    userDao.register(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<br />
-
-<h4 id="dao和mybatis的xml映射文件"><a href="#dao和mybatis的xml映射文件" class="headerlink" title="dao和mybatis的xml映射文件"></a>dao和mybatis的xml映射文件</h4><pre><code>* 创建Dao接口  和 service 对应
-
-* 创建方法
-
-* 添加Mapper注解</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IUserDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">User <span class="title">selectid</span><span class="params">(String string)</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">register</span><span class="params">(User user)</span></span>;   </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<pre><code>* 创建UserDaoMapper.xml映射文件
-
-* 更改namespace=&quot;com.xx.xxx.dao.IUserDao&quot; Dao接口所在位置
-
-* 创建insert 和 select 注意id要和IUserDao中的方法名一致</code></pre><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">"-//mybatis.org//DTD Mapper 3.0//EN"</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.xxx.xxx.dao.IUserDao"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"register"</span>&gt;</span></span><br><span class="line">        insert into user ( id, username, password) values</span><br><span class="line">        (#&#123;id&#125;, #&#123;username&#125;, #&#123;password&#125;);</span><br><span class="line">    <span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"selectid"</span> <span class="attr">resultType</span>=<span class="string">"User"</span> <span class="attr">parameterType</span>=<span class="string">"String"</span>&gt;</span></span><br><span class="line">        select * from user where id = #&#123;id&#125;;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>* xml映射文件所在文件夹的位置和application.properties中的mybatis-plus.mapper-locations对应/*.xml</code></pre><br />
-
-<h4 id="注册页面"><a href="#注册页面" class="headerlink" title="注册页面"></a>注册页面</h4><pre><code>* 页面使用的是vue和axios
-
-*  axios.post后面的地址端口和application.properties配置文件中的端口一致本机就是localhost</code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/axios/dist/axios.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"regapp"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>学号：<span class="tag">&lt;/<span class="name">span</span>&gt;</span>  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"user.id"</span> <span class="attr">placeholder</span>=<span class="string">"必填项啦！！"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>密码:<span class="tag">&lt;/<span class="name">span</span>&gt;</span>   <span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"user.password"</span> <span class="attr">type</span>=<span class="string">"password"</span> &gt;</span> <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"lar-button"</span> @<span class="attr">click</span>=<span class="string">"check"</span> &gt;</span>注册<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">        el: <span class="string">"#regapp"</span>,</span></span><br><span class="line">        data:&#123;</span><br><span class="line">            user:&#123;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, </span><br><span class="line">        methods:&#123;</span><br><span class="line">            regist()&#123;</span><br><span class="line"><span class="javascript">                    axios.post(<span class="string">"http://localhost:8989/user/register"</span>,<span class="keyword">this</span>.user).then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.log(res);</span></span><br><span class="line">                    &#125;)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;                    </span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
+* res.data.link</code></pre>
       
 
       
@@ -268,11 +191,7 @@ spring.application.name=siaw</code></pre><br />
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring-boot</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -328,7 +247,7 @@ spring.application.name=siaw</code></pre><br />
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/10/spring-boot%E7%99%BB%E5%BD%95%E5%92%8C%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/14/%E8%B7%AF%E5%BE%84%E4%B8%8A%E4%BC%A0%E4%BF%9D%E6%8C%81%E5%8E%9F%E6%9D%A5%E6%A0%BC%E5%BC%8F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -342,18 +261,9 @@ spring.application.name=siaw</code></pre><br />
   
 <nav id="article-nav">
   
-    <a href="/2020/07/14/%E8%B7%AF%E5%BE%84%E4%B8%8A%E4%BC%A0%E4%BF%9D%E6%8C%81%E5%8E%9F%E6%9D%A5%E6%A0%BC%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          路径上传保持原来格式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/08/html%E8%B8%A9%E5%9D%91/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">静态页面踩过的坑</div>
+    <a href="/2020/07/10/spring-boot%E7%99%BB%E5%BD%95%E5%92%8C%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring-boot注册页面</div>
       <i class="icon-circle-right"></i>
     </a>
   
