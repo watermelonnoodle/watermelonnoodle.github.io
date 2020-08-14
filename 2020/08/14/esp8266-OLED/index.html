@@ -6,19 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Watermelon·Noodle</title>
+  <title>esp8266+OLED | Watermelon·Noodle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="西瓜面的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Watermelon·Noodle">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="使用arduino框架编写esp8266使用OLED屏幕 IIC U8G2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="esp8266+OLED">
+<meta property="og:url" content="http://yoursite.com/2020/08/14/esp8266-OLED/index.html">
 <meta property="og:site_name" content="Watermelon·Noodle">
-<meta property="og:description" content="西瓜面的博客">
+<meta property="og:description" content="使用arduino框架编写esp8266使用OLED屏幕 IIC U8G2">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/imgs/0814/0814_02.png">
+<meta property="og:image" content="http://yoursite.com/imgs/0814/0814_03.png">
+<meta property="og:image" content="http://yoursite.com/imgs/0814/0814_07.png">
+<meta property="og:image" content="http://yoursite.com/imgs/0814/0814_05.png">
+<meta property="og:image" content="http://yoursite.com/imgs/0814/0814_01.png">
+<meta property="og:image" content="http://yoursite.com/imgs/0814/0814_06.png">
+<meta property="article:published_time" content="2020-08-14T13:10:52.000Z">
+<meta property="article:modified_time" content="2020-08-14T14:46:01.027Z">
 <meta property="article:author" content="WatermelonNoodle">
-<meta property="article:tag" content="WatermelonNoodle">
-<meta property="article:tag" content="西瓜面">
+<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="arduino">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/imgs/0814/0814_02.png">
   
     <link rel="alternative" href="/atom.xml" title="Watermelon·Noodle" type="application/atom+xml">
   
@@ -148,36 +157,87 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-esp8266-OLED" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/14/esp8266-OLED/" class="archive-article-date">
-  	<time datetime="2020-08-14T13:10:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/14/esp8266-OLED/">esp8266+OLED</a>
+    <h1 class="article-title" itemprop="name">
+      esp8266+OLED
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/08/14/esp8266-OLED/" class="archive-article-date">
+  	<time datetime="2020-08-14T13:10:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用arduino框架编写esp8266使用OLED屏幕 IIC U8G2</p>
+<a id="more"></a>
+
+<h4 id="配置arduino支持esp8266"><a href="#配置arduino支持esp8266" class="headerlink" title="配置arduino支持esp8266"></a>配置arduino支持esp8266</h4><pre><code>* 对arduino编译器设置 文件 -&gt; 首选项 -&gt; 附加开发板管理器网址 填入 http://arduino.esp8266.com/stable/package_esp8266com_index.json
+
+* 添加开发板 工具 -&gt; 开发板 -&gt; 开发板管理器 搜索 esp8266 安装 esp8266 by ESP8266 Community</code></pre><h4 id="选择开发板"><a href="#选择开发板" class="headerlink" title="选择开发板"></a>选择开发板</h4><p><img src="/imgs/0814/0814_02.png" alt="avatar"> </p>
+<pre><code>* 我用的是 V3 CP2102 在选择开发板上选择的是 NodeMCU 1.0 (ESP-12E Module) 选普通的ESP8266烧录时会报错
+
+* 设置好单片机的COM口</code></pre><h4 id="链接WIFI获取时间"><a href="#链接WIFI获取时间" class="headerlink" title="链接WIFI获取时间"></a>链接WIFI获取时间</h4><pre><code>* 使用NTP库来获取时间 项目 -&gt; 添加库 -&gt; 管理库 添加NTP库
+
+* 使用NTP的实例  文件 -&gt; 实例 -&gt; NTPClient -&gt; Basic</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;NTPClient.h&gt;      &#x2F;&#x2F;NTP</span><br><span class="line">#include &lt;ESP8266WiFi.h&gt;    &#x2F;&#x2F;ESP8266</span><br><span class="line">#include &lt;WiFiUdp.h&gt;        &#x2F;&#x2F;WIFI</span><br><span class="line"></span><br><span class="line">const char *ssid     &#x3D; &quot;&lt;SSID&gt;&quot;;        &#x2F;&#x2F;自己的WIFI的名称</span><br><span class="line">const char *password &#x3D; &quot;&lt;PASSWORD&gt;&quot;;    &#x2F;&#x2F;自己的WIFI密码    </span><br><span class="line"></span><br><span class="line">WiFiUDP ntpUDP;</span><br><span class="line">&#x2F;&#x2F;NTPClient timeClient(ntpUDP);         &#x2F;&#x2F;这是原本的NTP时间</span><br><span class="line">NTPClient timeClient(ntpUDP, &quot;ntp1.aliyun.com&quot;,60*60*8, 30*60*1000);    &#x2F;&#x2F;这是添加时差后的时间 有8个小时的时间差</span><br><span class="line"></span><br><span class="line">void setup()&#123;</span><br><span class="line">  Serial.begin(115200);                 &#x2F;&#x2F;设置串口比特率115200</span><br><span class="line">  WiFi.begin(ssid, password);           &#x2F;&#x2F;准备链接WIFI</span><br><span class="line">  while ( WiFi.status() !&#x3D; WL_CONNECTED ) &#123;     &#x2F;&#x2F;判断是否链接成功 不成功是 6 成功是 WL_CONNECTED 3</span><br><span class="line">    delay ( 500 );                      &#x2F;&#x2F;等待500毫秒</span><br><span class="line">    Serial.print ( &quot;.&quot; );               &#x2F;&#x2F;在串口打印 .</span><br><span class="line">  &#125;</span><br><span class="line">  timeClient.begin();                   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void loop() &#123;</span><br><span class="line">  timeClient.update();                  &#x2F;&#x2F;刷新时间</span><br><span class="line">  Serial.println(timeClient.getFormattedTime());    &#x2F;&#x2F;在串口打印时间</span><br><span class="line">  delay(1000);                          &#x2F;&#x2F;等待1秒</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>* 设置好WIFI用户名密码改好时间差就可以烧录到ESP8266了
+
+* 打开串口监视器115200 可以看到打印时间</code></pre><h4 id="添加OLED屏"><a href="#添加OLED屏" class="headerlink" title="添加OLED屏"></a>添加OLED屏</h4><p><img src="/imgs/0814/0814_03.png" alt="avatar"> </p>
+<pre><code>* OLED 屏幕需要添加 &lt;ArduinoJson.h&gt; &lt;U8g2lib.h&gt; 这两个库 使用U8G2图形库
+
+* OLED 通过 I2C 通讯有4个接口 GND (链接板子上的GND) VCC (链接板子上的3.3v) 用来供电
+
+* SCL 时钟链接板子上的D1 SDA 链接板子上的D2</code></pre><p><img src="/imgs/0814/0814_07.png" alt="avatar"> </p>
+<pre><code>* 这是ESP8266的接口在程序中调用需要写GPIO后面的数字 (比如D5 在程序中要写成 14)
+
+* 声明 U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
+
+* 初始化 U8G2  u8g2.begin(); u8g2.enableUTF8Print();
+
+* 显示  u8g2.setCursor(30, 30); u8g2.print(&quot;hello world&quot;); u8g2.sendBuffer();
+
+* 我们把获取到的时间每隔1秒显示在屏幕上</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;NTPClient.h&gt;</span><br><span class="line">#include &lt;ESP8266WiFi.h&gt;</span><br><span class="line">#include &lt;WiFiUdp.h&gt;</span><br><span class="line"></span><br><span class="line">#include &lt;ESP8266HTTPClient.h&gt;</span><br><span class="line">#include &lt;ArduinoJson.h&gt;</span><br><span class="line">#include &lt;U8g2lib.h&gt;</span><br><span class="line"></span><br><span class="line">#ifdef U8X8_HAVE_HW_SPI</span><br><span class="line">#include &lt;SPI.h&gt;</span><br><span class="line">#endif</span><br><span class="line">#ifdef U8X8_HAVE_HW_I2C</span><br><span class="line">#include &lt;Wire.h&gt;</span><br><span class="line">#endif                      &#x2F;&#x2F;前面这一段是用来判断是 I2C传输还是SPI</span><br><span class="line"></span><br><span class="line">U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, &#x2F;* reset&#x3D;*&#x2F; U8X8_PIN_NONE);</span><br><span class="line"></span><br><span class="line">const char *ssid     &#x3D; &quot;YOU WIFI NAME&quot;;</span><br><span class="line">const char *password &#x3D; &quot;YOU PASSWORD&quot;;</span><br><span class="line"></span><br><span class="line">WiFiUDP ntpUDP;</span><br><span class="line">&#x2F;&#x2F;NTPClient timeClient(ntpUDP);</span><br><span class="line">NTPClient timeClient(ntpUDP, &quot;ntp1.aliyun.com&quot;,60*60*8, 30*60*1000);</span><br><span class="line"></span><br><span class="line">void setup()&#123;</span><br><span class="line">  Serial.begin(115200);</span><br><span class="line">  u8g2.begin();</span><br><span class="line">  u8g2.enableUTF8Print();    &#x2F;&#x2F; enable UTF8 support for the Arduino print() function</span><br><span class="line">  </span><br><span class="line">  u8g2.setFont(u8g2_font_wqy12_t_gb2312a);  &#x2F;&#x2F;设置字体这是一个比较小的字体 12px</span><br><span class="line">  u8g2.clear();                             &#x2F;&#x2F;清屏  清除屏幕和清除显存</span><br><span class="line">  u8g2.setCursor(30, 30);                   &#x2F;&#x2F;设置显示位置</span><br><span class="line">  u8g2.print(&quot;connecting...&quot;);              &#x2F;&#x2F;显示连接中  加载到显存并不是真正的显示</span><br><span class="line">  u8g2.sendBuffer();                        &#x2F;&#x2F;显示显存中的数据</span><br><span class="line"></span><br><span class="line">  WiFi.begin(ssid, password);               &#x2F;&#x2F;链接WIFI</span><br><span class="line">  while ( WiFi.status() !&#x3D; WL_CONNECTED ) &#123;</span><br><span class="line">    delay ( 500 );</span><br><span class="line">    Serial.print ( &quot;.&quot; );</span><br><span class="line">  &#125;</span><br><span class="line">  u8g2.setFont(u8g2_font_fub20_tf);     &#x2F;&#x2F; 设置字体这是一个比较大的字体 20px 为后面显示时间做准备</span><br><span class="line">  timeClient.begin();                   &#x2F;&#x2F;开始获取时间</span><br><span class="line"></span><br><span class="line">  u8g2.clear();                         &#x2F;&#x2F;清屏</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void loop() &#123;</span><br><span class="line">  timeClient.update();              &#x2F;&#x2F;更新时间</span><br><span class="line">    u8g2.clear();                   &#x2F;&#x2F;清屏</span><br><span class="line">    u8g2.setCursor(10, 45);         &#x2F;&#x2F;设置位置</span><br><span class="line">    u8g2.print(timeClient.getFormattedTime());  &#x2F;&#x2F;显示时间</span><br><span class="line">    u8g2.sendBuffer();              &#x2F;&#x2F;显示显存中的数据</span><br><span class="line"></span><br><span class="line">  Serial.println(timeClient.getFormattedTime()); &#x2F;&#x2F;串口打印数据</span><br><span class="line">  delay(1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgs/0814/0814_05.png" alt="avatar"> </p>
+<h4 id="OLED改进"><a href="#OLED改进" class="headerlink" title="OLED改进"></a>OLED改进</h4><pre><code>* 上面那个程序虽然能显示但是可以看到很明显的刷新
+
+* 这就要用到 u8g2.firstPage() u8g2.nextPage() 循环刷新
+
+* 我还想再开机时显示一个头像图片
+
+* 我用的OLED是128*64的所以用PS把头像修改为62*62的图片
+
+* 通过软件转码可以用 u8g2.drawXBM() 来将图片展示出来
+
+* 最终的代码如下</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;NTPClient.h&gt;</span><br><span class="line">&#x2F;&#x2F; change next line to use with another board&#x2F;shield</span><br><span class="line">#include &lt;ESP8266WiFi.h&gt;</span><br><span class="line">&#x2F;&#x2F;#include &lt;WiFi.h&gt; &#x2F;&#x2F; for WiFi shield</span><br><span class="line">&#x2F;&#x2F;#include &lt;WiFi101.h&gt; &#x2F;&#x2F; for WiFi 101 shield or MKR1000</span><br><span class="line">#include &lt;WiFiUdp.h&gt;</span><br><span class="line">&#x2F;&#x2F;</span><br><span class="line">#include &lt;ESP8266HTTPClient.h&gt;</span><br><span class="line">#include &lt;ArduinoJson.h&gt;</span><br><span class="line">#include &lt;U8g2lib.h&gt;</span><br><span class="line"></span><br><span class="line">#ifdef U8X8_HAVE_HW_SPI</span><br><span class="line">#include &lt;SPI.h&gt;</span><br><span class="line">#endif</span><br><span class="line">#ifdef U8X8_HAVE_HW_I2C</span><br><span class="line">#include &lt;Wire.h&gt;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, &#x2F;* reset&#x3D;*&#x2F; U8X8_PIN_NONE);</span><br><span class="line"></span><br><span class="line">const char *ssid     &#x3D; &quot;YOU WIFI NAME&quot;;</span><br><span class="line">const char *password &#x3D; &quot;YOU PASSWORD&quot;;</span><br><span class="line"></span><br><span class="line">const unsigned char col[] U8X8_PROGMEM &#x3D; &#123;</span><br><span class="line">0x00,0x00,0x0c,0x00,0x00,0x18,0x38,0x01,0x00,0x00,0x06,0x00,0x00,0x70,0x8c,0x01,0x00,0x00,0x01,0x03,0x00,0x60,0xc6,0x00,0x00,0x80,0x00,0x00,0x60,0xc0,0xe1,0x03,0x00,0xc0,0x00,0xe0,0x00,0x80,0xf1,0x06,0x00,0x60,0x00,0xf8,0x03,0x00,0x00,0x07,0x00,0x20,0x00,0x00,0x06,0x00,0xe0,0x01,0x00,0x30,0x00,0x8c,0x03,0x00,0x78,0x00,0x00,0x10,0xe0,0xfb,0x03,0x00,0x10,0x00,0x00,0x08,0x7c,0x00,0x1e,0x00,0x20,0x00,0x00,0x0c,0x07,0x06,0x30,0x00,0x60,0x00,0x00,0x84,0x01,0x06,0xc2,0x00,0x40,0x00,0x00,0xc6,0x08,0x03,0x83,0x01,0xc0,0x00,0x00,0x02,0x07,0x03,0x03,0x03,0xc0,0x00,0x00,0x03,0xe7,0x03,0x03,0x06,0xc0,0x00,0x00,0x01,0x7b,0xbe,0x03,0x0c,0xc0,0x00,0x80,0xa1,0x07,0xe0,0x82,0x08,0xe0,0x00,0xc0,0xa0,0x07,0x00,0x9e,0x18,0x62,0x00,0x40,0x20,0x70,0x00,0x80,0x30,0x62,0x00,0x60,0x30,0x08,0x00,0x80,0x30,0x60,0x00,0x30,0x10,0x06,0x00,0xc0,0x60,0xc2,0x00,0x18,0x10,0x3c,0x00,0xc4,0x60,0x86,0x00,0x0c,0x11,0x06,0x80,0xc9,0x60,0x84,0x01,0x06,0x99,0x01,0x00,0x46,0x20,0x04,0x03,0x83,0x88,0x70,0x00,0x4c,0x28,0x0c,0x02,0x01,0x08,0xf8,0x80,0x59,0x28,0x0c,0x06,0x60,0x08,0x78,0xc0,0x71,0x2c,0x0c,0x0c,0x20,0x08,0x30,0xe0,0x61,0x24,0x08,0x08,0x30,0x08,0x00,0xe0,0x61,0x34,0x08,0x18,0x30,0x8c,0x00,0x80,0x60,0x74,0x18,0x10,0x21,0x8c,0x00,0x00,0x20,0x7e,0x18,0x30,0x23,0x8c,0x00,0x00,0x20,0x4e,0x10,0x20,0x06,0x8d,0x00,0x00,0x20,0x4e,0x30,0x20,0xfc,0x8d,0x01,0x20,0x20,0x7e,0x60,0x00,0x70,0x04,0x03,0x00,0x20,0xd0,0x40,0x00,0x00,0x0e,0x0e,0x00,0x20,0x80,0x00,0x00,0x00,0x0f,0x3c,0x00,0x30,0x8c,0x01,0x01,0x00,0x0d,0xf2,0x3f,0x3e,0x04,0x01,0x00,0x80,0x8d,0x02,0x7f,0x3e,0x06,0x03,0x00,0x80,0x89,0x03,0x3c,0x27,0x86,0x07,0x20,0x80,0x88,0x03,0x9c,0x23,0x06,0x0f,0x30,0xc0,0x98,0x03,0xc8,0x60,0x04,0x3b,0x1c,0x40,0x98,0x03,0x60,0x60,0x8c,0xff,0x1f,0x60,0x90,0x0f,0x30,0x40,0xec,0x37,0x30,0x20,0x30,0xfd,0x0f,0xc0,0xbc,0x6f,0x20,0x30,0x20,0xe3,0x03,0xde,0x0c,0xc7,0x00,0x10,0x60,0x02,0x00,0xc0,0x0c,0x83,0x01,0x18,0xc0,0x00,0x00,0x80,0x0c,0x86,0x01,0x08,0xa0,0x01,0x00,0x80,0x0c,0x06,0x03,0x08,0x30,0x80,0x00,0x80,0x0c,0x0c,0x03,0x0c,0x10,0x80,0x00,0x81,0x04,0x88,0x01,0x04,0x18,0xc0,0x00,0x43,0x06,0x98,0x01,0x04,0x18,0xc0,0x00,0x63,0x03,0xd8,0x00,0x06,0x08,0x40,0x00,0xe3,0x00,0x30,0x00,0x06,0x0c,0x60,0x80,0x03,0x00,0x30,0x00,0x02,0x0c,0x60,0x80,0x03,0x00,0x60,0x00,0x02,0x0c,0x60,0x80,0x03,0x00,0x60,0x00,0x03,0x0c,0x70,0x80,0x03,0x00,0x40,0x00,0x03,0x04,0x30,0x80,0x03,0x00,0xc0,0x00,0x03,0x06,0x30,0x80,0x03,0x00,0xc0,0x00,0x03,0x06,0x10,0x80,0x01,0x00,0x80,0x00,0x03,0x06,0x00,0x00,0x01,0x00,0x80,0x01&#125;;</span><br><span class="line">&#x2F;&#x2F;这个是图片转码后的形式我的OLED屏幕好像大小端和有些不一样可能会错位</span><br><span class="line"></span><br><span class="line">WiFiUDP ntpUDP;</span><br><span class="line">NTPClient timeClient(ntpUDP, &quot;ntp1.aliyun.com&quot;,60*60*8, 30*60*1000);</span><br><span class="line"></span><br><span class="line">void setup()&#123;</span><br><span class="line">  Serial.begin(115200);</span><br><span class="line">  u8g2.begin();</span><br><span class="line">  u8g2.enableUTF8Print();    &#x2F;&#x2F; enable UTF8 support for the Arduino print() function</span><br><span class="line">  </span><br><span class="line">  u8g2.setFont(u8g2_font_ncenB14_tr);</span><br><span class="line">  u8g2.drawXBM(32, 0, 62, 62, col);         &#x2F;&#x2F; u8g2.drawXBM(图片左上角x轴坐标, 图片左上角y轴坐标, 图片长, 图片宽, col);</span><br><span class="line">  u8g2.sendBuffer();</span><br><span class="line">  delay ( 5000 );                   &#x2F;&#x2F;上面用来显示图片5秒钟</span><br><span class="line">  </span><br><span class="line">  u8g2.setFont(u8g2_font_wqy12_t_gb2312a); &#x2F;&#x2F; choose a suitable font  (设置字体)</span><br><span class="line">  u8g2.clear();</span><br><span class="line">  u8g2.setCursor(30, 30);</span><br><span class="line">  u8g2.print(&quot;connecting...&quot;);</span><br><span class="line">  u8g2.sendBuffer();  </span><br><span class="line">  WiFi.begin(ssid, password);</span><br><span class="line"></span><br><span class="line">  while ( WiFi.status() !&#x3D; WL_CONNECTED ) &#123;</span><br><span class="line">    delay ( 500 );</span><br><span class="line">    Serial.print ( &quot;.&quot; );</span><br><span class="line">  &#125;</span><br><span class="line">  u8g2.setFont(u8g2_font_fub20_tf);</span><br><span class="line">  timeClient.begin();</span><br><span class="line">  u8g2.clear();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void loop() &#123;</span><br><span class="line">  timeClient.update();</span><br><span class="line">  </span><br><span class="line">  u8g2.firstPage();</span><br><span class="line">  do &#123;</span><br><span class="line">    u8g2.setCursor(10, 45);</span><br><span class="line">    u8g2.print(timeClient.getFormattedTime());</span><br><span class="line">    u8g2.sendBuffer();   </span><br><span class="line">    &#125; while( u8g2.nextPage() );         &#x2F;&#x2F;使用 nextPage 就不用清屏操作了变得流畅了</span><br><span class="line"></span><br><span class="line">  delay(1000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgs/0814/0814_01.png" alt="avatar"> </p>
+<h4 id="OLED显示图片错位"><a href="#OLED显示图片错位" class="headerlink" title="OLED显示图片错位"></a>OLED显示图片错位</h4><pre><code>* 图片不按正常显示可能是 大小设置的不正确
+
+* 图片超出屏幕
+
+* 和大小端有关比如我这个</code></pre><p><img src="/imgs/0814/0814_06.png" alt="avatar"> </p>
+<pre><code>* 可以参考 https://www.arduino.cn/thread-89244-1-1.html
+
+* 我最后还是通过大佬的工具来弄好的
+
+* 大佬工具地址 http://tools.clz.me/image-to-bitmap-array</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -193,255 +253,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/14/esp8266-OLED/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/14/%E8%B7%AF%E5%BE%84%E4%B8%8A%E4%BC%A0%E4%BF%9D%E6%8C%81%E5%8E%9F%E6%9D%A5%E6%A0%BC%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-07-13T17:00:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-14</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/14/%E8%B7%AF%E5%BE%84%E4%B8%8A%E4%BC%A0%E4%BF%9D%E6%8C%81%E5%8E%9F%E6%9D%A5%E6%A0%BC%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">路径上传保持原来格式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/14/%E8%B7%AF%E5%BE%84%E4%B8%8A%E4%BC%A0%E4%BF%9D%E6%8C%81%E5%8E%9F%E6%9D%A5%E6%A0%BC%E5%BC%8F/">路径上传保持原来格式</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/10/spring-boot%E7%99%BB%E5%BD%95%E5%92%8C%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2/" class="archive-article-date">
-  	<time datetime="2020-07-10T10:08:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/10/spring-boot%E7%99%BB%E5%BD%95%E5%92%8C%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2/">spring-boot注册页面</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring-boot</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">记录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/08/html%E8%B8%A9%E5%9D%91/" class="archive-article-date">
-  	<time datetime="2020-07-08T06:23:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/08/html%E8%B8%A9%E5%9D%91/">静态页面踩过的坑</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/07/git%E4%BD%BF%E7%94%A8%E7%9A%84%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-07-07T03:14:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/07/git%E4%BD%BF%E7%94%A8%E7%9A%84%E5%AD%A6%E4%B9%A0/">git使用的学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/06/yilia%E6%9B%B4%E6%94%B9%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2020-07-06T11:34:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/06/yilia%E6%9B%B4%E6%94%B9%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE/">yilia更改默认配置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/05/%E5%97%9D%E5%84%BF/" class="archive-article-date">
-  	<time datetime="2020-07-05T09:52:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/05/%E5%97%9D%E5%84%BF/">哈哈哈从零开始啦</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日常</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -470,8 +381,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
